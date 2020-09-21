@@ -3,14 +3,14 @@ import readlineSync from 'readline-sync';
 import Dictionary from './dictionary-trie.js';
 
 // SET TOP LEFT TILE COORD HERE
-const topLeftTile = [800, 540];
+const TOP_LEFT_TILE = [800, 540];
 
 // SET BOTTOM RIGHT TILE COORD HERE
-const bottomRightTile = [1100, 850];
+const BOTTOM_RIGHT_TILE = [1100, 850];
 
 // CONFIGURE MOUSE DELAY HERE
-const moveDelay = 50;
-robot.setMouseDelay(moveDelay);
+const MOVE_DELAY = 50;
+robot.setMouseDelay(MOVE_DELAY);
 
 // Import dictionary
 const dict = new Dictionary();
@@ -27,13 +27,13 @@ function sleep(ms) {
 
 // Populate tileCoords map:
 const tileCoords = new Map();
-const tilePxDiff = ((bottomRightTile[0] - topLeftTile[0]) / 2) * (2 / 3);
+const tilePxDiff = ((BOTTOM_RIGHT_TILE[0] - TOP_LEFT_TILE[0]) / 2) * (2 / 3);
 new Array(16)
   .fill()
   .forEach((_, i) =>
     tileCoords.set(`${Math.floor(i / 4)},${i % 4}`, [
-      topLeftTile[0] + (i % 4) * tilePxDiff,
-      topLeftTile[1] + Math.floor(i / 4) * tilePxDiff,
+      TOP_LEFT_TILE[0] + (i % 4) * tilePxDiff,
+      TOP_LEFT_TILE[1] + Math.floor(i / 4) * tilePxDiff,
     ]),
   );
 
