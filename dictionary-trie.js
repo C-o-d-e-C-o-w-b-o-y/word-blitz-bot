@@ -32,6 +32,14 @@ class Dictionary {
     return curr.valid;
   }
 
+  getRoot() {
+    return this.trieRoot;
+  }
+
+  getChild(node, char) {
+    return node?.children[this._ord(char)];
+  }
+
   _ord(char) {
     return char.charCodeAt(0) - 97;
   }

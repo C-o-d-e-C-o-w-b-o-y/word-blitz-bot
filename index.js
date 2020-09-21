@@ -55,7 +55,7 @@ const directions = new Map();
 
 let callCount = 0;
 
-const DFS = (currWord, visitedTileMap, tile, foundWords) => {
+const DFS = (currWord, visitedTileMap, tile, foundWords, trieNode) => {
   const [x, y] = tile.split(',').map((char) => Number(char));
   if (
     x < 0 ||
@@ -63,7 +63,8 @@ const DFS = (currWord, visitedTileMap, tile, foundWords) => {
     x > 3 ||
     y > 3 ||
     visitedTileMap.has(tile) ||
-    currWord.length > 8
+    currWord.length > 8 ||
+    trieNode == null
   )
     return;
 
@@ -90,6 +91,7 @@ const DFS = (currWord, visitedTileMap, tile, foundWords) => {
       new Map(visitedTileMap),
       `${x + adj[0]},${y + adj[1]}`,
       foundWords,
+      dict.getChild(trieNode, grid.get(tile)),
     ),
   );
 };
@@ -97,7 +99,7 @@ const DFS = (currWord, visitedTileMap, tile, foundWords) => {
 // Find words
 const foundWords = new Set();
 for (const tile of grid.keys()) {
-  DFS('', new Map(), tile, foundWords);
+  DFS('', new Map(), tile, foundWords, dict.getRoot());
 }
 
 // Sort words by length
