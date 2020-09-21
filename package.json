@@ -1,0 +1,28 @@
+{
+  "name": "word-blitz-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M4FFS/Word-Blitz-Bot.git"
+  },
+  "author": "M4FFS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M4FFS/Word-Blitz-Bot/issues"
+  },
+  "homepage": "https://github.com/M4FFS/Word-Blitz-Bot#readme",
+  "dependencies": {
+    "dictionary-en": "^3.0.1",
+    "readline-sync": "^1.4.10",
+    "robotjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  }
+}
