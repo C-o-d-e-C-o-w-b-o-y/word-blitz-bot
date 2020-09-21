@@ -12,6 +12,9 @@ const BOTTOM_RIGHT_TILE = [1100, 850];
 const MOVE_DELAY = 50;
 robot.setMouseDelay(MOVE_DELAY);
 
+// CONFIGURE DEBUG TEXT HERE
+const DEBUG_MODE = true;
+
 // Import dictionary
 const dict = new Dictionary();
 
@@ -115,4 +118,11 @@ for (const word of sortedWords) {
   if (new Date() - startTime > 80000) break;
 }
 
-console.log(callCount);
+if (DEBUG_MODE)
+  console.log(`
+=====Debug Info=====
+Recursive calls: ${callCount}
+Words found: ${sortedWords.length}
+Time ran for: ${new Date() - startTime}
+=====End Debug =====
+`);
