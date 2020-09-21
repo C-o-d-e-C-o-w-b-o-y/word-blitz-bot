@@ -16,7 +16,7 @@ robot.setMouseDelay(MOVE_DELAY);
 const DEBUG_MODE = true;
 
 // Import dictionary
-const dict = new Dictionary();
+const dict = new Dictionary('words.txt');
 
 // Record start time so we know when to stop mouse
 const startTime = new Date();

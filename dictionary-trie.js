@@ -1,11 +1,11 @@
 import fs from 'fs';
 
 class Dictionary {
-  constructor() {
+  constructor(fileName) {
     this.trieRoot = new TrieNode(null, false);
-    fs.readFileSync('words.txt', 'utf8')
+    fs.readFileSync(fileName, 'utf8')
       .split(/\s+/)
-      .forEach((word) => this.insert(word));
+      .forEach((word) => this.insert(word.toLowerCase()));
   }
 
   insert(word) {
