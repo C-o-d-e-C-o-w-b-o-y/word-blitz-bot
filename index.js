@@ -63,7 +63,6 @@ const DFS = (currWord, visitedTileMap, tile, foundWords, trieNode) => {
     x > 3 ||
     y > 3 ||
     visitedTileMap.has(tile) ||
-    currWord.length > 8 ||
     trieNode == null
   )
     return;

@@ -2,7 +2,7 @@ import fs from 'fs';
 
 class Dictionary {
   constructor(fileName) {
-    this.trieRoot = new TrieNode(null, false);
+    this.trieRoot = new TrieNode(false);
     fs.readFileSync(fileName, 'utf8')
       .split(/\s+/)
       .forEach((word) => this.insert(word.toLowerCase()));
@@ -16,7 +16,7 @@ class Dictionary {
     for (const char of word) {
       // Create node if it doesn't exist
       if (!curr.children[this._ord(char)])
-        curr.children[this._ord(char)] = new TrieNode(char, false);
+        curr.children[this._ord(char)] = new TrieNode(false);
 
       curr = curr.children[this._ord(char)];
     }
@@ -46,8 +46,7 @@ class Dictionary {
 }
 
 class TrieNode {
-  constructor(key, valid) {
-    this.key = key;
+  constructor(valid) {
     this.valid = valid;
     this.children = new Array(26);
   }
