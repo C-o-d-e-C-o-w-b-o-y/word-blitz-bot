@@ -1,10 +1,12 @@
 # Word-Blitz-Bot
 
+This is a script that plays the online game 'Word Blitz' :) 
+
 ## How To Install
 
 * Clone repo
 * `npm install`
-* You might get issues with `robot.js`, google to debug
+* You might get issues with installing `robot.js`, google to debug
 
 ## How To Use
 
